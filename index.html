@@ -254,7 +254,7 @@
   <button class="act" id="btn-validate" type="button">
     <svg class="i" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>Validate
   </button>
-  <button class="act strong" id="btn-post" type="button">
+  <button class="act strong" id="btn-post" type="button" disabled title="Validate the journal first">
     <svg class="i" viewBox="0 0 24 24" id="post-icon"><path d="M12 3v11M7 9l5 5 5-5"/><path d="M4 16v4h16v-4"/></svg><span id="post-label">Post</span>
   </button>
   <span class="sep" aria-hidden="true"></span>
@@ -712,7 +712,8 @@
   function openLog(title) { logTitle.textContent = title; log.classList.add('open'); }
   function closeLog() { log.classList.remove('open'); }
   function setMsg(kind, html) { msgbar.className = 'msgbar' + (kind === 'ok' ? ' ok' : ''); msgText.innerHTML = html; }
-  function setBusy(on) { busy = on; btnValidate.disabled = on; btnPost.disabled = on; }
+  // Post stays locked until the journal has been validated
+  function setBusy(on) { busy = on; btnValidate.disabled = on; btnPost.disabled = on || !validated; }
 
   async function validate() {
     logList.innerHTML = '';
@@ -726,11 +727,12 @@
     logResult.textContent = 'Validation completed: 0 errors, 0 warnings.';
     logResult.hidden = false;
     validated = true;
+    btnPost.removeAttribute('title');
     if (!posted) setMsg('info', 'Validation passed with <b>0 errors</b> and <b>0 warnings</b>. Post the journal to get in touch.');
   }
 
   async function post() {
-    if (!validated) await validate();
+    if (!validated) return;
     openLog('Posting journal');
     await wait(400);
     for (var i = 0; i < rows.length; i++) {
