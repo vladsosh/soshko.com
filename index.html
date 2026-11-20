@@ -29,7 +29,6 @@
     --ok-soft: #dff6dd;
     --info-soft: #f0f6fd;
     --font: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   }
 
   * { box-sizing: border-box; }
@@ -37,7 +36,7 @@
   body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 var(--font); }
   [hidden] { display: none !important; }
   a { color: var(--accent); }
-  .mono { font-family: var(--mono); font-size: .92em; }
+  .mono { font-variant-numeric: tabular-nums; }
   .i { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
   .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
@@ -49,7 +48,7 @@
   .crumbs { color: #b9c8d9; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
   .crumbs b { color: #fff; font-weight: 600; }
   .spacer { flex: 1; }
-  .company { font: 600 12px var(--mono); letter-spacing: .08em; border: 1px solid rgba(255,255,255,.35); border-radius: 4px; padding: 3px 8px; flex: none; }
+  .company { font: 600 12px var(--font); letter-spacing: .08em; border: 1px solid rgba(255,255,255,.35); border-radius: 4px; padding: 3px 8px; flex: none; }
   .avatar { width: 30px; height: 30px; border-radius: 50%; background: #3a6ea5; display: grid; place-items: center; font-size: 12px; font-weight: 600; flex: none; }
 
   /* Action pane */
@@ -64,14 +63,14 @@
   .sep { width: 1px; height: 20px; background: var(--line); margin: 0 6px; flex: none; }
 
   /* Page */
-  .page { max-width: 1280px; margin: 0 auto; padding: 20px 16px 32px; }
+  .page { max-width: 1280px; margin: 0 auto; padding: 20px 16px 32px; overflow-x: clip; }
   .pagehead { position: relative; padding: 4px 0 16px; }
   .caption { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 600; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
   h1 { font-size: 32px; line-height: 1.2; margin: 6px 0 6px; font-weight: 600; letter-spacing: -.01em; }
   .headline { margin: 0; color: var(--muted); }
   .pill { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; text-transform: none; letter-spacing: 0; padding: 2px 10px; border-radius: 999px; background: #e9e8e7; color: var(--text-2); }
   .pill.posted { background: var(--ok-soft); color: var(--ok); }
-  .stamp { position: absolute; right: 12px; top: 6px; border: 3px solid var(--ok); color: var(--ok); font: 800 26px var(--mono); letter-spacing: .14em; text-transform: uppercase; padding: 4px 16px; border-radius: 6px; transform: rotate(-9deg) scale(2.4); opacity: 0; pointer-events: none; transition: transform .35s cubic-bezier(.2,1.6,.4,1), opacity .2s; }
+  .stamp { position: absolute; right: 12px; top: 6px; border: 3px solid var(--ok); color: var(--ok); font: 800 26px var(--font); letter-spacing: .14em; text-transform: uppercase; padding: 4px 16px; border-radius: 6px; transform: rotate(-9deg) scale(2.4); opacity: 0; pointer-events: none; transition: transform .35s cubic-bezier(.2,1.6,.4,1), opacity .2s; }
   .stamp.on { opacity: .85; transform: rotate(-9deg) scale(1); }
 
   /* Message bar */
@@ -115,7 +114,7 @@
   .f-value { font-size: 14px; border-bottom: 1px solid var(--line-strong); padding: 3px 0 4px; min-height: 28px; }
 
   /* Dimension tags */
-  .dim { display: inline-block; font: 600 11px var(--mono); padding: 1px 6px; border-radius: 3px; margin: 1px 3px 1px 0; color: var(--c); background: var(--b); }
+  .dim { display: inline-block; font: 600 11px var(--font); padding: 1px 6px; border-radius: 3px; margin: 1px 3px 1px 0; color: var(--c); background: var(--b); }
   .d-CONS { --c: #0f6cbd; --b: #ebf3fc; }
   .d-PO   { --c: #7a52b3; --b: #f3effa; }
   .d-SA   { --c: #037579; --b: #e3f4f4; }
@@ -126,7 +125,7 @@
   /* Filters */
   .filters { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; padding: 2px 0 12px; }
   .filters .f-label { margin: 0 6px 0 0; }
-  .chip { border: 1px solid var(--line-strong); background: #fff; border-radius: 999px; padding: 3px 12px; font: 600 12px var(--mono); cursor: pointer; color: var(--text); }
+  .chip { border: 1px solid var(--line-strong); background: #fff; border-radius: 999px; padding: 3px 12px; font: 600 12px var(--font); cursor: pointer; color: var(--text); }
   .chip:hover { border-color: var(--accent); }
   .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
   .count { margin-left: auto; font-size: 12px; color: var(--muted); }
@@ -160,6 +159,7 @@
     tr.jl[aria-selected="true"] { background: var(--accent-soft); box-shadow: inset 3px 0 0 var(--accent); }
     tr.sub td.desc { padding-left: 0; }
     tr.sub td.desc::after { display: none; }
+    .grid td.card-hide { display: none !important; }
   }
 
   /* Line details */
@@ -184,7 +184,7 @@
   .edu { list-style: none; margin: 0; padding: 0; }
   .edu li { display: grid; grid-template-columns: 90px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line-soft); }
   .edu li:last-child { border-bottom: 0; }
-  .edu .yr { font: 600 13px var(--mono); color: var(--muted); padding-top: 2px; }
+  .edu .yr { font: 600 13px var(--font); font-variant-numeric: tabular-nums; color: var(--muted); padding-top: 2px; }
   .edu small { display: block; color: var(--muted); font-size: 13px; }
 
   /* FactBoxes */
@@ -213,11 +213,23 @@
   @keyframes fadein { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 
   .foot { max-width: 1280px; margin: 0 auto; padding: 0 16px 32px; color: var(--muted); font-size: 12px; }
+  .statusbar { display: flex; flex-wrap: wrap; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 4px; font: 12px/1.4 var(--font); color: var(--text-2); }
+  .statusbar > span { padding: 7px 12px; border-right: 1px solid var(--line-soft); }
+  .statusbar .sb-company { font-weight: 600; letter-spacing: .08em; color: var(--nav); }
+  .statusbar .sb-links { margin-left: auto; border-right: 0; display: flex; gap: 16px; }
+  .foot-note { margin: 10px 0 0; }
+  @media (max-width: 720px) {
+    .statusbar > span { border-right: 0; padding: 5px 10px; }
+    .statusbar .sb-links { margin-left: 0; }
+  }
 
   @media (max-width: 720px) {
     .crumbs, .company { display: none; }
     h1 { font-size: 27px; }
-    .stamp { font-size: 18px; top: -4px; right: 0; padding: 2px 10px; }
+    .stamp { font-size: 16px; top: 30px; right: 0; padding: 2px 10px; }
+    .actionpane { padding: 4px 6px; }
+    .act { padding: 8px 7px; gap: 5px; }
+    #btn-print, .actionpane .sep:has(+ #btn-print) { display: none; }
     .fasttab > summary .hint { display: none; }
     .edu li { grid-template-columns: 1fr; gap: 2px; }
   }
@@ -368,7 +380,7 @@
                   <td data-label="Period" class="nowrap">Released 2024</td>
                   <td data-label="Account" class="mono">YAVICA-LOAN</td>
                   <td data-label="Description" class="desc"><div><b>Product Owner, Loan Management module</b><small>New D365FO module</small></div></td>
-                  <td data-label="Duration" class="nowrap">&nbsp;</td>
+                  <td data-label="Duration" class="nowrap card-hide">&nbsp;</td>
                   <td data-label="Dimensions"><span><span class="dim d-PO">PO</span><span class="dim d-FIN">FIN</span></span></td>
                   <td data-label="Status"><span class="status">Not posted</span></td>
                 </tr>
@@ -377,7 +389,7 @@
                   <td data-label="Period" class="nowrap">2025 &ndash; 2026</td>
                   <td data-label="Account" class="mono">YAVICA-KAB</td>
                   <td data-label="Description" class="desc"><div><b>Team lead, KAB implementation</b><small>Senior Functional Consultant</small></div></td>
-                  <td data-label="Duration" class="nowrap">&nbsp;</td>
+                  <td data-label="Duration" class="nowrap card-hide">&nbsp;</td>
                   <td data-label="Dimensions"><span><span class="dim d-CONS">CONS</span><span class="dim d-RE">RE</span><span class="dim d-FIN">FIN</span></span></td>
                   <td data-label="Status"><span class="status">Not posted</span></td>
                 </tr>
@@ -581,7 +593,14 @@
 </main>
 
 <footer class="foot">
-  CV Ledger is a D365FO inspired site concept by Vladimir Soshko. Not affiliated with Microsoft.
+  <div class="statusbar">
+    <span class="sb-company">SOSHKO</span>
+    <span>Posting layer: Current</span>
+    <span>Last updated: Nov 2026</span>
+    <span>No cookies, no tracking</span>
+    <span class="sb-links"><a data-email href="#contact">Email</a><a href="https://www.linkedin.com/in/vladimirsoshko" target="_blank" rel="noopener">LinkedIn</a></span>
+  </div>
+  <p class="foot-note">&copy; 2026 Vladimir Soshko. CV Ledger is a D365FO inspired site concept. Not affiliated with Microsoft. Built with care and Claude.</p>
 </footer>
 
 <aside class="infolog" id="infolog" aria-label="Message details">
