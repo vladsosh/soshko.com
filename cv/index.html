@@ -1,0 +1,823 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vladimir Soshko | Personal Page</title>
+<meta name="description" content="Vladimir Soshko: Senior Functional Consultant for Microsoft Dynamics 365 Finance and Operations, with an MSc in Finance and International Business. Based in Denmark.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://soshko.com/cv/">
+<meta property="og:site_name" content="Vladimir Soshko | Personal Page">
+<meta property="og:title" content="Vladimir Soshko | Personal Page">
+<meta property="og:description" content="D365FO functional consultant with a finance background. Validate the journal, then post it to get in touch.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2a47'/%3E%3Ctext x='16' y='21' font-family='Arial' font-size='13' font-weight='700' fill='white' text-anchor='middle'%3EVS%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --nav: #0e2a47;
+    --accent: #0f6cbd;
+    --accent-hover: #115ea3;
+    --accent-soft: #ebf3fc;
+    --bg: #f5f5f4;
+    --card: #ffffff;
+    --line: #e1dfdd;
+    --line-soft: #edebe9;
+    --line-strong: #c8c6c4;
+    --text: #201f1e;
+    --text-2: #3b3a39;
+    --muted: #605e5c;
+    --ok: #107c10;
+    --ok-soft: #dff6dd;
+    --info-soft: #f0f6fd;
+    --font: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 var(--font); }
+  [hidden] { display: none !important; }
+  a { color: var(--accent); }
+  .mono { font-variant-numeric: tabular-nums; }
+  .i { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  /* Top bar */
+  .topbar { position: sticky; top: 0; z-index: 30; height: 48px; background: var(--nav); color: #fff; display: flex; align-items: center; gap: 14px; padding: 0 16px; }
+  .waffle { display: grid; grid-template-columns: repeat(3, 4px); gap: 3px; flex: none; }
+  .waffle span { width: 4px; height: 4px; background: #fff; border-radius: 1px; }
+  .appname { font-weight: 600; white-space: nowrap; }
+  .crumbs { color: #b9c8d9; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  .crumbs b { color: #fff; font-weight: 600; }
+  .spacer { flex: 1; }
+  .company { font: 600 12px var(--font); letter-spacing: .08em; border: 1px solid rgba(255,255,255,.35); border-radius: 4px; padding: 3px 8px; flex: none; }
+  .avatar { width: 30px; height: 30px; border-radius: 50%; background: #3a6ea5; display: grid; place-items: center; font-size: 12px; font-weight: 600; flex: none; }
+
+  /* Action pane */
+  .actionpane { position: sticky; top: 48px; z-index: 20; background: #fff; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 2px; padding: 4px 12px; overflow-x: auto; scrollbar-width: none; }
+  .actionpane::-webkit-scrollbar { display: none; }
+  .act { display: inline-flex; align-items: center; gap: 7px; border: 0; background: none; color: var(--text); font: inherit; font-size: 14px; padding: 8px 10px; border-radius: 4px; cursor: pointer; white-space: nowrap; text-decoration: none; }
+  .act:hover { background: #f3f2f1; }
+  .act:focus-visible, .chip:focus-visible, .btn:focus-visible, tr.jl:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .act .i { color: var(--accent); }
+  .act.strong { font-weight: 600; }
+  .act:disabled { opacity: .45; cursor: default; background: none; }
+  .sep { width: 1px; height: 20px; background: var(--line); margin: 0 6px; flex: none; }
+
+  /* Page */
+  .page { max-width: 1280px; margin: 0 auto; padding: 20px 16px 12px; overflow-x: clip; }
+  .pagehead { position: relative; padding: 4px 0 16px; }
+  .caption { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 600; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  h1 { font-size: 32px; line-height: 1.2; margin: 6px 0 6px; font-weight: 600; letter-spacing: -.01em; }
+  .headline { margin: 0; color: var(--muted); }
+  .pill { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; text-transform: none; letter-spacing: 0; padding: 2px 10px; border-radius: 999px; background: #e9e8e7; color: var(--text-2); }
+  .pill.posted { background: var(--ok-soft); color: var(--ok); }
+  .stamp { position: absolute; right: 12px; top: 6px; border: 3px solid var(--ok); color: var(--ok); font: 800 26px var(--font); letter-spacing: .14em; text-transform: uppercase; padding: 4px 16px; border-radius: 6px; transform: rotate(-9deg) scale(2.4); opacity: 0; pointer-events: none; transition: transform .35s cubic-bezier(.2,1.6,.4,1), opacity .2s; }
+  .stamp.on { opacity: .85; transform: rotate(-9deg) scale(1); }
+
+  /* Message bar */
+  .msgbar { display: flex; gap: 10px; align-items: flex-start; background: var(--info-soft); border: 1px solid #c7dcf3; border-left: 4px solid var(--accent); padding: 10px 14px; border-radius: 4px; margin-bottom: 12px; font-size: 14px; }
+  .msgbar > .i { color: var(--accent); margin-top: 2px; }
+  .msgbar.ok { background: var(--ok-soft); border-color: #b7deb5; border-left-color: var(--ok); }
+  .msgbar.ok > .i { color: var(--ok); }
+  .msg-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; font: 600 13px var(--font); padding: 6px 14px; border-radius: 4px; border: 1px solid var(--line-strong); background: #fff; color: var(--text); text-decoration: none; cursor: pointer; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn.primary:hover { background: var(--accent-hover); }
+
+  /* Layout */
+  .layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 12px; align-items: start; }
+  .factboxes { position: sticky; top: 112px; display: grid; gap: 12px; }
+  @media (max-width: 1199px) {
+    .layout { grid-template-columns: minmax(0, 1fr); }
+    .factboxes { position: static; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+  }
+
+  /* Totals */
+  .totals { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 12px; }
+  .tile { background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 6px; padding: 12px 16px; }
+  .tile .num { font-size: 28px; font-weight: 600; line-height: 1.15; }
+  .tile .lbl { font-size: 13px; color: var(--muted); }
+  @media (max-width: 720px) { .totals { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+  /* FastTabs */
+  .fasttab { background: var(--card); border: 1px solid var(--line); border-radius: 6px; margin-bottom: 12px; }
+  .content > .fasttab:last-child { margin-bottom: 0; }
+  .fasttab > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 10px; padding: 12px 16px; font-weight: 600; font-size: 16px; }
+  .fasttab > summary::-webkit-details-marker { display: none; }
+  .fasttab > summary .i { width: 14px; height: 14px; color: var(--muted); transition: transform .15s; }
+  .fasttab[open] > summary .i { transform: rotate(90deg); }
+  .fasttab > summary .hint { margin-left: auto; font-weight: 400; font-size: 13px; color: var(--muted); text-align: right; }
+  .ft-body { padding: 0 16px 16px; }
+  .ft-body > p { margin: 0 0 10px; }
+  .ft-body > p:last-child { margin-bottom: 0; }
+
+  .fields { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px 24px; }
+  .f-label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 2px; }
+  .f-value { font-size: 14px; border-bottom: 1px solid var(--line-strong); padding: 3px 0 4px; min-height: 28px; }
+
+  /* Dimension tags */
+  .dim { display: inline-block; font: 600 11px var(--font); padding: 1px 6px; border-radius: 3px; margin: 1px 3px 1px 0; color: var(--c); background: var(--b); }
+  .d-CONS { --c: #0f6cbd; --b: #ebf3fc; }
+  .d-PO   { --c: #7a52b3; --b: #f3effa; }
+  .d-SA   { --c: #037579; --b: #e3f4f4; }
+  .d-FIN  { --c: #0e700e; --b: #e7f4e7; }
+  .d-RE   { --c: #b5470f; --b: #fdeee6; }
+  .d-AI   { --c: #a8329c; --b: #fbecf9; }
+
+  /* Filters */
+  .filters { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; padding: 2px 0 12px; }
+  .filters .f-label { margin: 0 6px 0 0; }
+  .chip { border: 1px solid var(--line-strong); background: #fff; border-radius: 999px; padding: 3px 12px; font: 600 12px var(--font); cursor: pointer; color: var(--text); }
+  .chip:hover { border-color: var(--accent); }
+  .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .count { margin-left: auto; font-size: 12px; color: var(--muted); }
+
+  /* Grids */
+  .grid-wrap { border: 1px solid var(--line); border-radius: 4px; overflow-x: auto; }
+  table.grid { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .grid th { text-align: left; font-weight: 600; font-size: 12px; color: var(--muted); background: #faf9f8; padding: 8px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  .grid td { padding: 9px 10px; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+  .grid tbody tr:last-child td { border-bottom: 0; }
+  .grid .nowrap { white-space: nowrap; }
+  tr.jl { cursor: pointer; }
+  tr.jl:hover td { background: #f8f8f7; }
+  tr.jl[aria-selected="true"] td { background: var(--accent-soft); }
+  tr.jl[aria-selected="true"] td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+  tr.sub td.desc { padding-left: 28px; position: relative; }
+  tr.sub td.desc::after { content: ""; position: absolute; left: 12px; top: 10px; width: 9px; height: 8px; border-left: 1px solid var(--line-strong); border-bottom: 1px solid var(--line-strong); }
+  .desc b { font-weight: 600; }
+  .desc small { display: block; color: var(--muted); font-size: 13px; }
+  .status { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; padding: 2px 8px; border-radius: 999px; background: #f3f2f1; color: var(--muted); white-space: nowrap; transition: background .2s, color .2s; }
+  .status.posted { background: var(--ok-soft); color: var(--ok); }
+  .status .i { width: 12px; height: 12px; }
+
+  @media (max-width: 720px) {
+    .grid thead { display: none; }
+    .grid, .grid tbody, .grid tr, .grid td { display: block; width: 100%; }
+    .grid tr { padding: 10px 12px; border-bottom: 1px solid var(--line); }
+    .grid tbody tr:last-child { border-bottom: 0; }
+    .grid td, tr.jl:hover td, tr.jl[aria-selected="true"] td { display: flex; gap: 12px; border: 0; padding: 2px 0; background: none; box-shadow: none !important; }
+    .grid td::before { content: attr(data-label); flex: 0 0 88px; color: var(--muted); font-size: 12px; padding-top: 2px; }
+    tr.jl[aria-selected="true"] { background: var(--accent-soft); box-shadow: inset 3px 0 0 var(--accent); }
+    tr.sub td.desc { padding-left: 0; }
+    tr.sub td.desc::after { display: none; }
+    .grid td.card-hide { display: none !important; }
+  }
+
+  /* Line details */
+  .detail-panel { margin-top: 12px; border: 1px solid var(--line); border-radius: 4px; background: #faf9f8; padding: 12px 16px; }
+  .detail-panel .f-label { margin-bottom: 6px; }
+  .line-detail h3 { margin: 0 0 2px; font-size: 16px; }
+  .line-detail .meta { color: var(--muted); font-size: 13px; margin: 0 0 8px; }
+  .line-detail ul { margin: 0; padding-left: 18px; }
+  .line-detail li { margin: 4px 0; }
+  .line-detail + .line-detail { margin-top: 16px; }
+  .js .line-detail { display: none; }
+  .js .line-detail.active { display: block; margin-top: 0; }
+
+  /* Dimensions */
+  .dims { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+  .dimcard { border: 1px solid var(--line); border-left: 4px solid var(--c); border-radius: 4px; padding: 10px 14px; }
+  .dimcard h3 { margin: 0 0 6px; font-size: 14px; display: flex; gap: 8px; align-items: center; }
+  .dimcard ul { margin: 0; padding-left: 18px; font-size: 13.5px; color: var(--text-2); }
+  .dimcard li { margin: 3px 0; }
+
+  /* Education */
+  .edu { list-style: none; margin: 0; padding: 0; }
+  .edu li { display: grid; grid-template-columns: 90px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line-soft); }
+  .edu li:last-child { border-bottom: 0; }
+  .edu .yr { font: 600 13px var(--font); font-variant-numeric: tabular-nums; color: var(--muted); padding-top: 2px; }
+  .edu small { display: block; color: var(--muted); font-size: 13px; }
+
+  /* FactBoxes */
+  .factbox { background: var(--card); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .factbox h2 { font-size: 13px; font-weight: 600; margin: 0; padding: 9px 14px; border-bottom: 1px solid var(--line); background: #faf9f8; }
+  .fb-body { padding: 8px 14px 10px; font-size: 14px; }
+  .kv { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; border-bottom: 1px dashed var(--line-soft); }
+  .kv:last-child { border-bottom: 0; }
+  .kv > span:first-child { color: var(--muted); }
+  .kv > :last-child { text-align: right; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; padding: 4px 0; }
+  .tag { font-size: 12px; background: #f3f2f1; border-radius: 3px; padding: 2px 8px; }
+
+  /* Infolog */
+  .infolog { position: fixed; top: 48px; right: 0; bottom: 0; width: min(400px, 100%); background: #fff; border-left: 1px solid var(--line); box-shadow: -8px 0 24px rgba(0,0,0,.12); z-index: 40; transform: translateX(105%); visibility: hidden; transition: transform .25s ease, visibility 0s linear .25s; display: flex; flex-direction: column; }
+  .infolog.open { transform: none; visibility: visible; transition: transform .25s ease; }
+  .infolog header { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+  .infolog h2 { font-size: 16px; margin: 0; }
+  .infolog ol { list-style: none; margin: 0; padding: 4px 16px; overflow: auto; flex: 1; }
+  .infolog li { display: flex; gap: 10px; padding: 9px 0; border-bottom: 1px solid #f3f2f1; font-size: 14px; animation: fadein .25s ease; }
+  .infolog li .i { color: var(--ok); margin-top: 3px; }
+  .infolog li small { display: block; color: var(--muted); font-size: 13px; }
+  .infolog .result { padding: 12px 16px; border-top: 1px solid #b7deb5; background: var(--ok-soft); color: var(--ok); font-weight: 600; font-size: 14px; }
+  .iconbtn { border: 0; background: none; padding: 6px; border-radius: 4px; cursor: pointer; color: var(--text); display: grid; }
+  .iconbtn:hover { background: #f3f2f1; }
+  @keyframes fadein { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+  .foot { max-width: 1280px; margin: 0 auto; padding: 0 16px 32px; color: var(--muted); font-size: 12px; }
+  .statusbar { display: flex; flex-wrap: wrap; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 4px; font: 12px/1.4 var(--font); color: var(--text-2); }
+  .statusbar > span { padding: 7px 12px; border-right: 1px solid var(--line-soft); }
+  .statusbar .sb-company { font-weight: 600; letter-spacing: .08em; color: var(--nav); }
+  .statusbar .sb-links { margin-left: auto; border-right: 0; display: flex; gap: 16px; }
+  .foot-note { margin: 10px 0 0; }
+  @media (max-width: 720px) {
+    .statusbar > span { border-right: 0; padding: 5px 10px; }
+    .statusbar .sb-links { margin-left: 0; }
+  }
+
+  @media (max-width: 720px) {
+    .crumbs, .company { display: none; }
+    h1 { font-size: 27px; }
+    .stamp { font-size: 16px; top: 30px; right: 0; padding: 2px 10px; }
+    .actionpane { padding: 4px 6px; }
+    .act { padding: 8px 7px; gap: 5px; }
+    #btn-print, .actionpane .sep:has(+ #btn-print) { display: none; }
+    .fasttab > summary .hint { display: none; }
+    .edu li { grid-template-columns: 1fr; gap: 2px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+
+  @media print {
+    .topbar, .actionpane, .msgbar, .infolog, .filters, .stamp, .detail-panel > .f-label { display: none !important; }
+    body { background: #fff; font-size: 10.5pt; }
+    .page { padding: 0; }
+    .layout { grid-template-columns: 1fr; }
+    .factboxes { position: static; grid-template-columns: repeat(2, 1fr); }
+    .fasttab, .factbox, .tile, .dimcard { break-inside: avoid; }
+    .js .line-detail { display: block !important; margin-top: 14px !important; }
+    tr.jl td { background: none !important; box-shadow: none !important; }
+    a { color: inherit; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="waffle" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="appname">CV Ledger</div>
+  <div class="crumbs">CV &rsaquo; Journals &rsaquo; <b>General journal</b></div>
+  <div class="spacer"></div>
+  <div class="company" title="Legal entity">SOSHKO</div>
+  <div class="avatar" aria-hidden="true">VS</div>
+</header>
+
+<nav class="actionpane" aria-label="Actions">
+  <button class="act" id="btn-validate" type="button">
+    <svg class="i" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>Validate
+  </button>
+  <button class="act strong" id="btn-post" type="button" disabled title="Validate the journal first">
+    <svg class="i" viewBox="0 0 24 24" id="post-icon"><path d="M12 3v11M7 9l5 5 5-5"/><path d="M4 16v4h16v-4"/></svg><span id="post-label">Post</span>
+  </button>
+  <span class="sep" aria-hidden="true"></span>
+  <a class="act" data-email href="#contact">
+    <svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email
+  </a>
+  <a class="act" href="https://www.linkedin.com/in/vladimirsoshko" target="_blank" rel="noopener">
+    <svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>LinkedIn
+  </a>
+  <span class="sep" aria-hidden="true"></span>
+  <button class="act" id="btn-print" type="button">
+    <svg class="i" viewBox="0 0 24 24"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></svg>Print
+  </button>
+</nav>
+
+<main class="page">
+
+  <div class="pagehead">
+    <div class="caption">General journal <span class="mono">CV-2026</span> <span class="pill" id="status-pill">Not posted</span></div>
+    <h1>Vladimir Soshko</h1>
+    <p class="headline">Senior Functional Consultant | Microsoft D365FO | MSc in Finance &amp; International Business</p>
+    <div class="stamp" id="stamp" aria-hidden="true">Posted</div>
+  </div>
+
+  <div class="msgbar" id="msgbar" role="status" aria-live="polite">
+    <svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>
+    <div id="msg-text">This journal has not been posted yet. Select <b>Validate</b> to check it, then <b>Post</b> to get in touch with Vladimir.</div>
+  </div>
+
+  <div class="layout">
+    <div class="content">
+
+      <div class="totals">
+        <div class="tile"><div class="num"><span data-total-years>14</span>+</div><div class="lbl">years in finance and ERP</div></div>
+        <div class="tile"><div class="num">6</div><div class="lbl">end-to-end D365FO implementations</div></div>
+        <div class="tile"><div class="num">&euro;5bn+</div><div class="lbl">loan portfolios underwritten</div></div>
+        <div class="tile"><div class="num">4</div><div class="lbl">languages</div></div>
+      </div>
+
+      <details class="fasttab" open>
+        <summary><svg class="i" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>Journal header<span class="hint">CV &middot; Posting layer: Current</span></summary>
+        <div class="ft-body">
+          <div class="fields">
+            <div><span class="f-label">Employee</span><div class="f-value">Vladimir Soshko</div></div>
+            <div><span class="f-label">Current position</span><div class="f-value">Senior Functional Consultant, YAVICA</div></div>
+            <div><span class="f-label">Location</span><div class="f-value">Greater Copenhagen, Denmark</div></div>
+            <div><span class="f-label">Certification</span><div class="f-value">Microsoft Certified, MB-300 / MB-310</div></div>
+            <div><span class="f-label">Education</span><div class="f-value">MSc Finance &amp; International Business</div></div>
+            <div><span class="f-label">Posting layer</span><div class="f-value">Current</div></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="fasttab" open>
+        <summary><svg class="i" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>Summary</summary>
+        <div class="ft-body">
+          <p>Certified Microsoft Dynamics 365 Finance &amp; Operations (D365FO) functional consultant with an MSc in Finance &amp; International Business and <span data-total-years>14</span>+ years of combined finance and ERP experience. Since 2018 I have delivered 6 end-to-end D365FO implementations, including 2 covering 10+ countries, and worked on 10+ projects in specific phases of implementations. My focus is the business processes around property management, AR, AP and product information management, plus master data, configuration and data migration, from requirement workshops through to tested go-lives.</p>
+          <p>Before working with D365FO projects, I spent five years at Situs analysing and underwriting more than &euro;5 billion of loan portfolios for investors such as Deutsche Bank and Cerberus. Structured, detail-oriented and comfortable taking ownership, with a strong interest in AI and automation in finance.</p>
+        </div>
+      </details>
+
+      <details class="fasttab" open id="lines">
+        <summary><svg class="i" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>Journal lines<span class="hint">Select a line to see the details</span></summary>
+        <div class="ft-body">
+          <div class="filters" role="group" aria-label="Filter lines by dimension">
+            <span class="f-label">Dimension</span>
+            <button class="chip" type="button" data-dim="ALL" aria-pressed="true">All</button>
+            <button class="chip" type="button" data-dim="CONS" aria-pressed="false">CONS</button>
+            <button class="chip" type="button" data-dim="PO" aria-pressed="false">PO</button>
+            <button class="chip" type="button" data-dim="SA" aria-pressed="false">SA</button>
+            <button class="chip" type="button" data-dim="FIN" aria-pressed="false">FIN</button>
+            <button class="chip" type="button" data-dim="RE" aria-pressed="false">RE</button>
+            <span class="count" id="line-count">5 lines</span>
+          </div>
+
+          <div class="grid-wrap">
+            <table class="grid" id="journal">
+              <thead>
+                <tr><th>Voucher</th><th>Period</th><th>Account</th><th>Description</th><th>Duration</th><th>Dimensions</th><th>Status</th></tr>
+              </thead>
+              <tbody>
+                <tr class="jl" tabindex="0" aria-selected="false" data-line="parex" data-start="2007-08" data-end="2008-07" data-count="yes" data-dims="FIN RE">
+                  <td data-label="Voucher" class="mono nowrap">CV-0001</td>
+                  <td data-label="Period" class="nowrap">2007 &ndash; 2008</td>
+                  <td data-label="Account" class="mono">PAREX</td>
+                  <td data-label="Description" class="desc"><div><b>Credit Risk Analyst</b><small>Parex Bank, Latvia</small></div></td>
+                  <td data-label="Duration" class="nowrap" data-duration>1 y 0 m</td>
+                  <td data-label="Dimensions"><span><span class="dim d-FIN">FIN</span><span class="dim d-RE">RE</span></span></td>
+                  <td data-label="Status"><span class="status">Not posted</span></td>
+                </tr>
+                <tr class="jl" tabindex="0" aria-selected="false" data-line="situs" data-start="2012-12" data-end="2018-01" data-count="yes" data-dims="FIN RE">
+                  <td data-label="Voucher" class="mono nowrap">CV-0002</td>
+                  <td data-label="Period" class="nowrap">2012 &ndash; 2018</td>
+                  <td data-label="Account" class="mono">SITUS</td>
+                  <td data-label="Description" class="desc"><div><b>Associate / Analyst</b><small>Situs, Denmark</small></div></td>
+                  <td data-label="Duration" class="nowrap" data-duration>5 y 2 m</td>
+                  <td data-label="Dimensions"><span><span class="dim d-FIN">FIN</span><span class="dim d-RE">RE</span></span></td>
+                  <td data-label="Status"><span class="status">Not posted</span></td>
+                </tr>
+                <tr class="jl" tabindex="0" aria-selected="true" data-line="yavica" data-start="2018-02" data-end="now" data-count="yes" data-dims="CONS SA FIN RE PO">
+                  <td data-label="Voucher" class="mono nowrap">CV-0003</td>
+                  <td data-label="Period" class="nowrap">2018 &ndash; now</td>
+                  <td data-label="Account" class="mono">YAVICA</td>
+                  <td data-label="Description" class="desc"><div><b>Senior Functional Consultant</b><small>YAVICA, Denmark</small></div></td>
+                  <td data-label="Duration" class="nowrap" data-duration>8 y 9 m</td>
+                  <td data-label="Dimensions"><span><span class="dim d-CONS">CONS</span><span class="dim d-SA">SA</span><span class="dim d-FIN">FIN</span><span class="dim d-RE">RE</span><span class="dim d-PO">PO</span></span></td>
+                  <td data-label="Status"><span class="status">Not posted</span></td>
+                </tr>
+                <tr class="jl sub" tabindex="0" aria-selected="false" data-line="loan" data-dims="PO FIN">
+                  <td data-label="Voucher" class="mono nowrap">CV-0004</td>
+                  <td data-label="Period" class="nowrap">Released 2024</td>
+                  <td data-label="Account" class="mono">YAVICA-LOAN</td>
+                  <td data-label="Description" class="desc"><div><b>Product Owner, Loan Management module</b><small>New D365FO module</small></div></td>
+                  <td data-label="Duration" class="nowrap card-hide">&nbsp;</td>
+                  <td data-label="Dimensions"><span><span class="dim d-PO">PO</span><span class="dim d-FIN">FIN</span></span></td>
+                  <td data-label="Status"><span class="status">Not posted</span></td>
+                </tr>
+                <tr class="jl sub" tabindex="0" aria-selected="false" data-line="kab" data-dims="CONS RE FIN">
+                  <td data-label="Voucher" class="mono nowrap">CV-0005</td>
+                  <td data-label="Period" class="nowrap">2025 &ndash; 2026</td>
+                  <td data-label="Account" class="mono">YAVICA-KAB</td>
+                  <td data-label="Description" class="desc"><div><b>Team lead, KAB implementation</b><small>Senior Functional Consultant</small></div></td>
+                  <td data-label="Duration" class="nowrap card-hide">&nbsp;</td>
+                  <td data-label="Dimensions"><span><span class="dim d-CONS">CONS</span><span class="dim d-RE">RE</span><span class="dim d-FIN">FIN</span></span></td>
+                  <td data-label="Status"><span class="status">Not posted</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="detail-panel" aria-live="polite">
+            <span class="f-label">Line details</span>
+
+            <section class="line-detail" data-line="parex">
+              <h3>Credit Risk Analyst, Parex Bank</h3>
+              <p class="meta">Latvia &middot; Aug 2007 &ndash; Jul 2008. One of the largest banks in Latvia, with offices in 13 countries and around 2,000 employees, until its collapse in the global financial crisis at the end of 2008. Rebranded as Citadele Bank after restructuring.</p>
+              <ul>
+                <li>Performed financial and risk analysis of current and potential clients from the Baltic States, Russia, Ukraine and Azerbaijan for CRE and cash flow financing.</li>
+                <li>Presented the analysis and recommendations to the bank's Credit Committee.</li>
+                <li>Analysed and checked commercial real estate valuations in the Baltic States and CIS countries: large commercial properties valued at &euro;1&ndash;50 million.</li>
+              </ul>
+            </section>
+
+            <section class="line-detail" data-line="situs">
+              <h3>Associate / Analyst, Situs</h3>
+              <p class="meta">Denmark &middot; Dec 2012 &ndash; Jan 2018. Strategic business solutions for the finance and commercial real estate industries. Clients include Deutsche Bank, Cerberus, BoAML, AXA, AIG, Bank of China and Hyundai.</p>
+              <ul>
+                <li>Underwrote and performed due diligence on seven secured performing and non-performing loan portfolios with an aggregate value above &euro;5 billion, including financial and investment analysis of corporate and commercial real estate transactions.</li>
+                <li>Translated analysis into investor advisory: clear conclusions and recommendations for senior decision makers.</li>
+                <li>Designed and built Excel models to underwrite and evaluate loan portfolios and underlying collateral.</li>
+                <li>Helped set up a loan-servicing platform for a &euro;200 million portfolio in Latvia on behalf of Deutsche Bank, covering business plans, decision-making structure, IT system and SOPs.</li>
+                <li>Reviewed and optimised internal business processes, delivering significant time savings and fewer errors.</li>
+                <li>Worked with stakeholders from Analysts to VPs and Managing Directors across the Nordics, Germany, UK, US, France, China, Korea and Turkey.</li>
+                <li>Moved from Analyst to Associate in 2016.</li>
+              </ul>
+            </section>
+
+            <section class="line-detail active" data-line="yavica">
+              <h3>Senior Functional Consultant, YAVICA</h3>
+              <p class="meta">Denmark &middot; Feb 2018 &ndash; now. Property, loan and data management solutions for Microsoft D365FO and CE. Clients include INGKA Centres, ATP Ejendomme, KAB, NEPI Rockcastle and Credit Suisse.</p>
+              <ul>
+                <li>Delivered 6 end-to-end Microsoft D365 Finance &amp; Operations implementations (4 single-country, 2 multi-country rollouts) as functional and business consultant, and worked on 10+ more projects in specific areas and phases.</li>
+                <li>Led solution modeling workshops to understand, challenge and optimise clients' finance and business processes, translating what the business needs into clear solution designs and decisions.</li>
+                <li>Took part in pre-sales, understanding the overall solution and proposing the approach to client requirements.</li>
+                <li>Owned master data structures (vendors, customers, properties, contracts), system configuration and data migration across multi-country rollouts, building the consistent data foundation that reliable financial reporting depends on.</li>
+                <li>Designed integrations and solutions for functional gaps, managed delivery by development teams in India and Romania, and tested end-to-end processes before go-live.</li>              </ul>
+            </section>
+
+            <section class="line-detail" data-line="loan">
+              <h3>Product Owner, Loan Management module for D365FO</h3>
+              <p class="meta">YAVICA &middot; Released 2024.</p>
+              <ul>
+                <li>As Product Manager / Product Owner, initiated and led development of a new Loan Management module for D365FO with a team of 5.</li>
+                <li>Defined scope, prioritised the backlog and aligned internal and client stakeholders on direction.</li>
+                <li>Agile/Kanban delivery in Azure DevOps.</li>
+                <li>Released in 2024. Live with a client in Central America, with a UK go-live coming up.</li>
+              </ul>
+            </section>
+
+            <section class="line-detail" data-line="kab">
+              <h3>Team lead, KAB implementation</h3>
+              <p class="meta">YAVICA &middot; Denmark &middot; 2025 &ndash; 2026.</p>
+              <ul>
+                <li>Team lead and senior functional consultant on the KAB implementation.</li>
+                <li>Scope: property management (D365FO), AR, AP and data migration.</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </details>
+
+      <details class="fasttab" open>
+        <summary><svg class="i" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>Sub-ledger: implementations<span class="hint">6 end-to-end, 10+ overall</span></summary>
+        <div class="ft-body">
+          <div class="grid-wrap">
+            <table class="grid">
+              <thead>
+                <tr><th>Client</th><th>Country</th><th>Period</th><th>Role</th><th>Scope</th></tr>
+              </thead>
+              <tbody>
+                <tr><td data-label="Client"><b>KAB</b></td><td data-label="Country">Denmark</td><td data-label="Period" class="nowrap">2025 &ndash; 2026</td><td data-label="Role">Senior functional consultant, team lead</td><td data-label="Scope">Property management, Data migration, Integrations</td></tr>
+                <tr><td data-label="Client"><b>Sponda</b></td><td data-label="Country">Finland</td><td data-label="Period" class="nowrap">2024</td><td data-label="Role">Functional consultant</td><td data-label="Scope">Property management, VAT exempt, Data migration</td></tr>
+                <tr><td data-label="Client"><b>ATP Ejendomme</b></td><td data-label="Country">Denmark</td><td data-label="Period" class="nowrap">2022 &ndash; 2023</td><td data-label="Role">Functional consultant</td><td data-label="Scope">Property management, AR, AP, Data migration</td></tr>
+                <tr><td data-label="Client"><b>NEPI Rockcastle</b></td><td data-label="Country">Romania, Poland, Czechia</td><td data-label="Period" class="nowrap">2020 &ndash; 2021</td><td data-label="Role">Functional consultant</td><td data-label="Scope">Property management, Configuration</td></tr>
+                <tr><td data-label="Client"><b>Stenprop / Indurent</b></td><td data-label="Country">UK</td><td data-label="Period" class="nowrap">2019 &ndash; 2020</td><td data-label="Role">Functional consultant</td><td data-label="Scope">Property management, D365 CE, Configuration</td></tr>
+                <tr><td data-label="Client"><b>Atrium</b></td><td data-label="Country">Poland, Czechia</td><td data-label="Period" class="nowrap">2018 &ndash; 2019</td><td data-label="Role">Functional consultant</td><td data-label="Scope">Data migration</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top:10px;font-size:14px;color:var(--text-2)">Other projects: Newsec, INGKA Centres, Ilmarinen, Entra.</p>
+        </div>
+      </details>
+
+      <details class="fasttab" open>
+        <summary><svg class="i" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>Financial dimensions<span class="hint">What I do, by track</span></summary>
+        <div class="ft-body">
+          <div class="dims">
+            <div class="dimcard d-CONS">
+              <h3><span class="dim d-CONS">CONS</span>Consultancy</h3>
+              <ul>
+                <li>Full lifecycle: workshops, fit-gap, design, configuration, data migration, testing, go-live</li>
+                <li>Business processes with client SME teams: AR, AP, property, contracts</li>
+                <li>Pre-sales: mapping client requirements to the solution</li>
+                <li>Stakeholder management: from Analysts to Managing Directors</li>
+              </ul>
+            </div>
+            <div class="dimcard d-PO">
+              <h3><span class="dim d-PO">PO</span>Product ownership</h3>
+              <ul>
+                <li>Initiated and led the D365FO Loan Management module, team of 5</li>
+                <li>Scope, backlog and stakeholder alignment</li>
+                <li>Delivery with development teams in India and Romania</li>              </ul>
+            </div>
+            <div class="dimcard d-SA">
+              <h3><span class="dim d-SA">SA</span>Solution architecture</h3>
+              <ul>
+                <li>Fit-gap analysis and solution design for functional gaps</li>
+                <li>Integration design in D365FO projects</li>
+                <li>Master data structures across legal entities and countries</li>
+                <li>Power BI, Microsoft Fabric, Power Automate, Azure DevOps</li>
+              </ul>
+            </div>
+            <div class="dimcard d-FIN">
+              <h3><span class="dim d-FIN">FIN</span>Finance</h3>
+              <ul>
+                <li>Underwriting and due diligence on 7 loan portfolios, above &euro;5 billion in total</li>
+                <li>Advanced Excel modelling for portfolio and collateral valuation</li>
+                <li>Credit risk analysis for the Credit Committee</li>
+              </ul>
+            </div>
+            <div class="dimcard d-RE">
+              <h3><span class="dim d-RE">RE</span>Real estate</h3>
+              <ul>
+                <li>D365FO property management implementations</li>
+                <li>Financial and investment analysis of corporate and CRE transactions</li>
+                <li>Reviewed CRE valuations of properties worth &euro;1&ndash;50 million</li>
+              </ul>
+            </div>
+            <div class="dimcard d-AI">
+              <h3><span class="dim d-AI">AI</span>AI &amp; automation</h3>
+              <ul>
+                <li>Microsoft Copilot for documentation, process optimisation and consistency checks</li>
+                <li>Power Automate, Microsoft Fabric, Power BI</li>
+                <li>Building skills in AI, agentic AI and AI automation with Claude</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="fasttab" open>
+        <summary><svg class="i" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>Education &amp; certification</summary>
+        <div class="ft-body">
+          <ul class="edu">
+            <li><span class="yr">2021</span><div><b>Microsoft Certified: Dynamics 365 Finance Functional Consultant Associate</b><small>MB-300 / MB-310</small></div></li>
+            <li><span class="yr">2008&ndash;2010</span><div><b>MSc in Finance and International Business</b><small>Aarhus School of Business, Aarhus University &middot; Financial analysis, international business, Lean, Six Sigma &amp; TQM</small></div></li>
+            <li><span class="yr">2005&ndash;2008</span><div><b>BSc in Economics and Business Administration</b><small>Stockholm School of Economics in Riga &middot; Financial economics, management accounting, micro- and macroeconomics</small></div></li>
+          </ul>
+        </div>
+      </details>
+
+    </div>
+
+    <aside class="factboxes" aria-label="Related information">
+      <section class="factbox" id="contact">
+        <h2>Contact</h2>
+        <div class="fb-body">
+          <div class="kv"><span>Email</span><a data-email data-email-text href="#contact">vladimir [at] soshko.com</a></div>
+          <div class="kv"><span>LinkedIn</span><a href="https://www.linkedin.com/in/vladimirsoshko" target="_blank" rel="noopener">vladimirsoshko</a></div>
+          <div class="kv"><span>Based in</span><span>Greater Copenhagen</span></div>
+        </div>
+      </section>
+
+      <section class="factbox">
+        <h2>Languages</h2>
+        <div class="fb-body">
+          <div class="kv"><span>English</span><span>Fluent</span></div>
+          <div class="kv"><span>Latvian</span><span>Fluent</span></div>
+          <div class="kv"><span>Russian</span><span>Fluent</span></div>
+          <div class="kv"><span>Danish</span><span>Good understanding</span></div>
+        </div>
+      </section>
+
+      <section class="factbox">
+        <h2>Toolbox</h2>
+        <div class="fb-body">
+          <div class="tags">
+            <span class="tag">D365 FO</span><span class="tag">D365 CE</span><span class="tag">Data migration</span><span class="tag">Configuration</span><span class="tag">Power BI</span><span class="tag">Microsoft Fabric</span><span class="tag">Power Automate</span><span class="tag">Azure DevOps</span><span class="tag">SharePoint</span><span class="tag">Excel modelling</span><span class="tag">Copilot</span><span class="tag">Agile / Kanban</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="factbox">
+        <h2>Off-ledger</h2>
+        <div class="fb-body">
+          <div class="kv"><span>Family</span><span>Father of three</span></div>
+          <div class="kv"><span>Training</span><span>Running, trail running, cycling</span></div>
+          <div class="kv"><span>Fuel</span><span>Coffee enthusiast</span></div>
+          <div class="kv"><span>Favourite getaway</span><span>Mountains with the family</span></div>
+        </div>
+      </section>
+    </aside>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="statusbar">
+    <span class="sb-company">SOSHKO</span>
+    <span>Posting layer: Current</span>
+    <span>Last updated: Nov 2026</span>
+    <span>No cookies, no tracking</span>
+    <span class="sb-links"><a data-email href="#contact">Email</a><a href="https://www.linkedin.com/in/vladimirsoshko" target="_blank" rel="noopener">LinkedIn</a></span>
+  </div>
+  <p class="foot-note">&copy; 2026 Vladimir Soshko. CV Ledger is a D365FO inspired site concept. Not affiliated with Microsoft. Built with care and Claude.</p>
+</footer>
+
+<aside class="infolog" id="infolog" aria-label="Message details">
+  <header>
+    <h2 id="infolog-title">Validating journal</h2>
+    <button class="iconbtn" id="infolog-close" type="button" aria-label="Close message details">
+      <svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </header>
+  <ol id="infolog-list" aria-live="polite"></ol>
+  <div class="result" id="infolog-result" hidden></div>
+</aside>
+
+<script>
+(function () {
+  document.documentElement.classList.add('js');
+
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, reduceMotion ? 0 : ms); }); }
+
+  var CHECK = '<svg class="i" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>';
+
+  // Email: assembled here so simple scrapers don't pick it up from the page source
+  var addr = 'vladimir' + '@' + 'soshko.com';
+  document.querySelectorAll('[data-email]').forEach(function (a) {
+    a.href = 'mailto:' + addr;
+    if (a.hasAttribute('data-email-text')) a.textContent = addr;
+  });
+
+  // Durations and total years, always as of today
+  var today = new Date();
+  function monthsFor(start, end) {
+    var s = start.split('-').map(Number);
+    if (end === 'now') {
+      var daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+      return (today.getFullYear() - s[0]) * 12 + (today.getMonth() + 1 - s[1]) + (today.getDate() - 1) / daysInMonth;
+    }
+    var e = end.split('-').map(Number);
+    return (e[0] - s[0]) * 12 + (e[1] - s[1]) + 1;
+  }
+  function fmt(m) { m = Math.floor(m); return Math.floor(m / 12) + ' y ' + (m % 12) + ' m'; }
+
+  var rows = Array.prototype.slice.call(document.querySelectorAll('tr.jl'));
+  var totalMonths = 0;
+  rows.forEach(function (tr) {
+    if (!tr.dataset.start) return;
+    var m = monthsFor(tr.dataset.start, tr.dataset.end);
+    var cell = tr.querySelector('[data-duration]');
+    if (cell) cell.textContent = fmt(m);
+    if (tr.dataset.count === 'yes') totalMonths += m;
+  });
+  if (totalMonths) {
+    document.querySelectorAll('[data-total-years]').forEach(function (el) { el.textContent = Math.floor(totalMonths / 12); });
+  }
+
+  // Line selection
+  var details = document.querySelectorAll('.line-detail');
+  function select(tr) {
+    rows.forEach(function (r) { r.setAttribute('aria-selected', r === tr ? 'true' : 'false'); });
+    details.forEach(function (d) { d.classList.toggle('active', d.dataset.line === tr.dataset.line); });
+  }
+  rows.forEach(function (tr) {
+    tr.addEventListener('click', function () { select(tr); });
+    tr.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(tr); }
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        var visible = rows.filter(function (r) { return !r.hidden; });
+        var next = visible[visible.indexOf(tr) + (e.key === 'ArrowDown' ? 1 : -1)];
+        if (next) { next.focus(); select(next); }
+      }
+    });
+  });
+
+  // Dimension filter
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var countEl = document.getElementById('line-count');
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var dim = chip.dataset.dim;
+      chips.forEach(function (c) { c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
+      var visible = [];
+      rows.forEach(function (r) {
+        var show = dim === 'ALL' || r.dataset.dims.split(' ').indexOf(dim) !== -1;
+        r.hidden = !show;
+        if (show) visible.push(r);
+      });
+      countEl.textContent = visible.length + (visible.length === 1 ? ' line' : ' lines');
+      var selected = rows.filter(function (r) { return r.getAttribute('aria-selected') === 'true'; })[0];
+      if ((!selected || selected.hidden) && visible.length) select(visible[visible.length - 1]);
+    });
+  });
+
+  // Validate and post
+  var log = document.getElementById('infolog');
+  var logTitle = document.getElementById('infolog-title');
+  var logList = document.getElementById('infolog-list');
+  var logResult = document.getElementById('infolog-result');
+  var msgbar = document.getElementById('msgbar');
+  var msgText = document.getElementById('msg-text');
+  var pill = document.getElementById('status-pill');
+  var stamp = document.getElementById('stamp');
+  var btnValidate = document.getElementById('btn-validate');
+  var btnPost = document.getElementById('btn-post');
+  var postLabel = document.getElementById('post-label');
+  var validated = false, posted = false, busy = false;
+
+  var checks = [
+    ['Finance background', 'MSc in Finance & International Business, D365FO implementations, Banking and Commercial Real Estate'],
+    ['Certification', 'Microsoft Certified: D365 Finance Functional Consultant Associate (MB-300, MB-310)'],
+    ['Delivery', '6 end-to-end D365FO implementations, 10+ projects in specific phases of implementations'],
+    ['Product ownership', 'Loan Management module in D365FO, released 2024'],
+    ['Languages', 'English, Latvian, Russian, good Danish understanding'],
+    ['Interests', 'Coffee enthusiast, running, trail running and cycling']
+  ];
+
+  function addLog(title, sub) {
+    var li = document.createElement('li');
+    li.innerHTML = CHECK;
+    var div = document.createElement('div');
+    var b = document.createElement('b'); b.textContent = title; div.appendChild(b);
+    if (sub) { var s = document.createElement('small'); s.textContent = sub; div.appendChild(s); }
+    li.appendChild(div);
+    logList.appendChild(li);
+    logList.scrollTop = logList.scrollHeight;
+  }
+  function openLog(title) { logTitle.textContent = title; log.classList.add('open'); }
+  function closeLog() { log.classList.remove('open'); }
+  function setMsg(kind, html) { msgbar.className = 'msgbar' + (kind === 'ok' ? ' ok' : ''); msgText.innerHTML = html; }
+  // Post stays locked until the journal has been validated
+  function setBusy(on) { busy = on; btnValidate.disabled = on; btnPost.disabled = on || !validated; }
+
+  async function validate() {
+    logList.innerHTML = '';
+    logResult.hidden = true;
+    openLog('Validating journal');
+    for (var i = 0; i < checks.length; i++) {
+      await wait(380);
+      addLog(checks[i][0], checks[i][1]);
+    }
+    await wait(250);
+    logResult.textContent = 'Validation completed: 0 errors, 0 warnings.';
+    logResult.hidden = false;
+    validated = true;
+    btnPost.removeAttribute('title');
+    if (!posted) setMsg('info', 'Validation passed with <b>0 errors</b> and <b>0 warnings</b>. Post the journal to get in touch.');
+  }
+
+  async function post() {
+    if (!validated) return;
+    openLog('Posting journal');
+    await wait(400);
+    for (var i = 0; i < rows.length; i++) {
+      var st = rows[i].querySelector('.status');
+      st.classList.add('posted');
+      st.innerHTML = CHECK + 'Posted';
+      await wait(220);
+    }
+    addLog('Journal CV-2026 posted', 'Contact request created for Vladimir Soshko');
+    logResult.textContent = 'Posting completed. 1 senior functional consultant ready to be contacted via email.';
+    logResult.hidden = false;
+    stamp.classList.add('on');
+    pill.classList.add('posted');
+    pill.textContent = 'Posted';
+    setMsg('ok', 'Journal posted. Vladimir is ready to be contacted via email or LinkedIn. Next step: say hello.' +
+      '<div class="msg-actions"><a class="btn primary" href="mailto:' + addr + '">Email Vladimir</a>' +
+      '<a class="btn" href="https://www.linkedin.com/in/vladimirsoshko" target="_blank" rel="noopener">Open LinkedIn</a></div>');
+    posted = true;
+    postLabel.textContent = 'Reverse';
+    await wait(1400);
+    closeLog();
+  }
+
+  function reverse() {
+    rows.forEach(function (r) {
+      var st = r.querySelector('.status');
+      st.classList.remove('posted');
+      st.textContent = 'Not posted';
+    });
+    stamp.classList.remove('on');
+    pill.classList.remove('posted');
+    pill.textContent = 'Not posted';
+    setMsg('info', 'Journal reversed. No harm done, you can post it again any time.');
+    posted = false;
+    postLabel.textContent = 'Post';
+  }
+
+  btnValidate.addEventListener('click', async function () {
+    if (busy) return;
+    setBusy(true);
+    try { await validate(); } finally { setBusy(false); }
+  });
+  btnPost.addEventListener('click', async function () {
+    if (busy) return;
+    if (posted) { reverse(); return; }
+    setBusy(true);
+    try { await post(); } finally { setBusy(false); }
+  });
+  document.getElementById('infolog-close').addEventListener('click', closeLog);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLog(); });
+
+  // Print: open every section and show all line details
+  document.getElementById('btn-print').addEventListener('click', function () { window.print(); });
+  window.addEventListener('beforeprint', function () {
+    document.querySelectorAll('details').forEach(function (d) { d.open = true; });
+  });
+})();
+</script>
+<script>
+  // Edit mode for the local preview on Vladimir's Mac. Loads only on localhost with ?edit. Does nothing on the live site.
+  (function () {
+    if (!/^(localhost|127\.0\.0\.1)$/.test(location.hostname) || !/[?&]edit\b/.test(location.search)) return;
+    var s = document.createElement('script');
+    s.src = '/__edit/editor.js';
+    document.body.appendChild(s);
+  })();
+</script>
+</body>
+</html>
